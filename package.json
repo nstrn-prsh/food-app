@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve-json": "json-serve --watch ./db.json --port 4001"
   },
   "dependencies": {
     "@next/font": "14.2.4",
+    "json-serve": "^0.1.0",
     "next": "14.2.4",
     "react": "18.3.1",
     "react-dom": "18.3.1"
