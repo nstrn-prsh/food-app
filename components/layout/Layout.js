@@ -1,28 +1,27 @@
 import Link from "next/link";
-import React, { Children } from "react";
-import style from "./Layout.module.css"; 
+import styles from "./Layout.module.css";
 
-const Layout = ({ children }) => {
-   return (
-      <>
-         <header className={style.header}>
-            <div className={style.left}>
-               <Link href='/'>Boto Food</Link>
-            </div>
-            <div className={style.right}>
-               <Link href='/menu'>Menu</Link>
-               <Link href='/categories'>Categories</Link>
-            </div>
-         </header>
-         <div className={style.container}>{children}</div>
-         <footer className={style.footer}>
-            <a href='#' target='_blank' rel='noreferrer'>
-               A link
-            </a>
-            Next practice project
-         </footer>
-      </>
-   );
-};
+function Layout({ children }) {
+  return (
+    <>
+      <header className={styles.header}>
+        <div className={styles.left}>
+          <Link href="/">BotoFood</Link>
+        </div>
+        <div className={styles.right}>
+          <Link href="/menu">Menu</Link>
+          <Link href="/categories">Categories</Link>
+        </div>
+      </header>
+      <div className={styles.container}>{children}</div>
+      <footer className={styles.footer}>
+        <a href="https://botostart.ir" target="_blank" rel="noreferrer">
+          Botostart
+        </a>
+        Next.js course | BotoFood Project &copy;
+      </footer>
+    </>
+  );
+}
 
 export default Layout;
