@@ -9,7 +9,7 @@ const Detail = ({ data }) => {
       return <p>loading ...</p>;
    }
 
-   return <Details Page {...data} />;
+   return <DetailsPage {...data} />;
 };
 
 export default Detail;
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
    const {
       params: { detailId },
    } = context;
-   const res = await fetch(`${process.env.BASE_URL}/data/${detailId}`)
+   const res = await fetch(`${process.env.BASE_URL}/data/${detailId}`);
    const data = await res.json();
 
    if (!data.id) {

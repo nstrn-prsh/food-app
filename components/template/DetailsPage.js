@@ -24,7 +24,7 @@ function DetailsPage(props) {
                   <h3>{name}</h3>
                   <span className={styles.location}>
                      <Location />
-                     {/* {body[0].Cuisine} */}
+                     {body[0].Cuisine}
                   </span>
                   <span className={styles.price}>
                      <Dollar />
@@ -42,27 +42,29 @@ function DetailsPage(props) {
                <h4>Details</h4>
                <ul>
                   {Array.apply(null, Array(5))
-                  .map(function (x, i) {
-                     return i;
-                  }).map((detail, index) => (
-                     <li key={index}>
-                        <p>{Object.keys(detail)[0]}: </p>
-                        <span>{Object.values(detail)[0]}</span>
-                     </li>
-                  ))}
+                     .map(function (x, i) {
+                        return i;
+                     })
+                     .map((detail, index) => (
+                        <li key={index}>
+                           <p>{Object.keys(detail)[0]}: </p>
+                           <span>{Object.values(detail)[0]}</span>
+                        </li>
+                     ))}
                </ul>
             </div>
             <div className={styles.details}>
                <h4>Ingredients</h4>
                <ul>
                   {Array.apply(null, Array(5))
-                  .map(function (x, i) {
-                     return i;
-                  }).map((item, index) => (
-                     <li key={index}>
-                        <p>{name}</p>
-                     </li>
-                  ))}
+                     .map(function (x, i) {
+                        return i;
+                     })
+                     .map((item, index) => (
+                        <li key={index}>
+                           <p>{name}</p>
+                        </li>
+                     ))}
                </ul>
             </div>
             <div className={styles.recipe}>
