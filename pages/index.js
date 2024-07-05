@@ -4,6 +4,8 @@ import HomePage from "../components/template/HomePage";
 export default function Home() {
    const [todos, setTodos] = useState([]);
    const [value, setValue] = useState("");
+   const [id, setId] = useState();
+   const [title, setTitle] = useState();
 
    useEffect(() => {
       async function fetchData() {
@@ -31,7 +33,7 @@ export default function Home() {
       const data = await res.json();
       setTodos(data.info);
 
-      console.log(data)
+      console.log(data);
    };
 
    const replaceHandler = async () => {
@@ -44,8 +46,17 @@ export default function Home() {
          headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      console.log(data,"---")
       setTodos(data.info);
+   };
+
+   const editHandler = async () => {
+      const res = await fetch(`/api/todos/${id}`, {
+         method: "PATCH",
+         body: JSON.stringify({ title }),
+         headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json()
+      setTodos(data)
    };
 
    return (
@@ -65,6 +76,17 @@ export default function Home() {
          </>
          <button onClick={deleteHandler}>delete all</button>
          <button onClick={replaceHandler}>replace all</button>
+         <input
+            placeholder='id'
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+         />
+         <input
+            placeholder='title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+         />
+         <button onClick={editHandler}>patch request</button>
          <HomePage />
       </>
    );
