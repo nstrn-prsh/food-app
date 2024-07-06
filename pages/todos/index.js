@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import { useEffect, useState } from "react";
 
@@ -61,6 +62,10 @@ const Todos = () => {
 
    return (
       <div>
+         <Head>
+            <title>todo</title>
+            <meta name=' description' content='this is a test project' />
+         </Head>
          <ul>
             {todos.map((item) => (
                <li key={item.id}>{item.title}</li>
